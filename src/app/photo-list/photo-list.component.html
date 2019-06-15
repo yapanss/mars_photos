@@ -1,0 +1,14 @@
+
+ <div id="container">
+   <div *ngIf="!photos">
+     <mat-spinner></mat-spinner>
+   </div>
+    <ngx-masonry
+          [useImagesLoaded]="true"
+          [options]="myOptions" *ngIf="photos">
+       <ngxMasonryItem  *ngFor="let photo of photos; let i = index;">
+        <!-- Grid Content  -->
+          <img src="{{photo.img_src}}" alt="{{photo.id}}" id="img_{{i}}"/>
+        </ngxMasonryItem>
+    </ngx-masonry>
+</div>
