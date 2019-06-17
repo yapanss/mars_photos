@@ -9,7 +9,9 @@
           [options]="myOptions" *ngIf="photos">
        <ngxMasonryItem  *ngFor="let photo of photos; let i = index;">
         <!-- Grid Content  -->
-          <img src="{{photo.img_src}}" alt="{{photo.id}}" id="img_{{i}}"/>
+          <a href="{{photo.img_src}}" target="_blank">
+            <img src="{{photo.img_src}}" alt="{{photo.id}}" id="img_{{i}}"/>
+          </a>
         </ngxMasonryItem>
     </ngx-masonry>
 </div>
