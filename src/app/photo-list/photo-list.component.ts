@@ -15,13 +15,13 @@ export class PhotoListComponent implements OnInit {
   };
   photos;
   photoObservable$;
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.photoObservable$ = this.apiService.getPhotos();
     this.photoObservable$.subscribe(data => {
-      this.photos = data.photos;
-      console.log(this.photos);
+      this.photos = data.donnees.photos;
     });
   }
 
