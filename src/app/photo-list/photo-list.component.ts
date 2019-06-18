@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgxMasonryOptions } from 'ngx-masonry';
 //import { ApiService } from '../services/api.service';
 
@@ -6,7 +6,6 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   selector: 'app-photo-list',
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.scss'],
-  inputs: ['photos', 'spinner', 'error']
 })
 export class PhotoListComponent implements OnInit {
   public myOptions: NgxMasonryOptions = {
@@ -14,6 +13,9 @@ export class PhotoListComponent implements OnInit {
     gutter: 8,
     columnWidth: 300,
   };
+  @Input() photos;
+  @Input() spinner;
+  @Input() error;
 
   constructor() { }
 
