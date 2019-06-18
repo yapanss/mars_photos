@@ -8,11 +8,7 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   styleUrls: ['./photo-list.component.scss'],
 })
 export class PhotoListComponent implements OnInit {
-  public myOptions: NgxMasonryOptions = {
-    // transitionDuration: '0.8s',
-    gutter: 8,
-    columnWidth: 300,
-  };
+  
   @Input() photos;
   @Input() spinner;
   @Input() error;

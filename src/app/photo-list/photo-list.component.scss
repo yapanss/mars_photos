@@ -4,6 +4,7 @@
 img {
   border-radius: 5px;
   width: 300px;
+  height: 250px;
   cursor: pointer;
 }
 #photo_qtty {
@@ -27,6 +28,11 @@ img {
     color: white;
     padding: 20px;
   }
+}
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 #spinner {
   display: flex;

@@ -14,16 +14,15 @@
     <div *ngIf="photos.length == 0" id="no_photo">
       <p>Nothing found </p>
     </div>
-    <ngx-masonry
-          [useImagesLoaded]="true"
-          [options]="myOptions"
-          *ngIf="photos.length > 0">
-       <ngxMasonryItem  *ngFor="let photo of photos; let i = index;">
-          <a href="{{photo.img_src}}" target="_blank">
-            <img src="{{photo.img_src}}" alt="{{photo.id}}" id="img_{{i}}"/>
-          </a>
-        </ngxMasonryItem>
-    </ngx-masonry>
+    <div id="grid" *ngIf="photos.length > 0">
+      <div class="grid-item"
+        *ngFor="let photo of photos; let i = index;">
+        <a href="{{photo.img_src}}" target="_blank">
+          <img src="{{photo.img_src}}" alt="{{photo.id}}" id="img_{{i}}"/>
+        </a>
+      </div>
+    </div>
+    
   </div>
 
 </div>
