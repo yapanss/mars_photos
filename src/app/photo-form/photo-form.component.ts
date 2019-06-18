@@ -22,23 +22,29 @@ export class PhotoFormComponent implements OnInit {
   }
 
   searchPhoto() {
-    this.triggerSpinner.emit(true);
-    this.triggerPhoto.emit(null);
-    this.triggerError.emit();
-    const photoObservable$ = this.api.getPhoto(this.sol, this.camera);
+    if(!this.sol || !this.camera) {
+      alert('Please fill in all the query items !');
+    }
+    else {
+      this.triggerSpinner.emit(true);
+      this.triggerPhoto.emit(null);
+      this.triggerError.emit();
+      const photoObservable$ = this.api.getPhoto(this.sol, this.camera);
 
-    photoObservable$.subscribe(response => {
-      if(response['success']) {
-        const photos = response['data'].photos;
-        this.triggerSpinner.emit(false);
-        this.triggerPhoto.emit(photos);
-      } else {
+      photoObservable$.subscribe(response => {
+        if(response['success']) {
+          const photos = response['data'].photos;
           this.triggerSpinner.emit(false);
-          this.triggerError.emit(response['err']);
-        };
+          this.triggerPhoto.emit(photos);
+        } else {
+            this.triggerSpinner.emit(false);
+            this.triggerError.emit(response['err']);
+          };
 
-    },
-    err => console.log(err));
+      },
+      err => console.log(err));
   }
+
+    }
 
 }
