@@ -1,11 +1,13 @@
 <app-header></app-header>
 <app-photo-form
         (triggerPhoto)="getPhoto($event)"
-        (triggerSpinner)="showSpinner($event)">
+        (triggerSpinner)="showSpinner($event)"
+        (triggerError)="displayError($event)">
 
 </app-photo-form>
 
   <app-photo-list
         [photos]=photos
-        [spinner]=show>
+        [spinner]=show
+        [error]=error>
   </app-photo-list>

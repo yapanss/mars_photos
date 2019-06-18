@@ -17,8 +17,8 @@ img {
     padding: 5px;
   }
 }
-#no_photo {
-  background-color: #ff0c5f;
+#no_photo, #error {
+  background-color: red;
   text-align: center;
   width: 80%;
   margin: auto;

@@ -8,11 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   photos;
   show: boolean;
+  error: string;
 
   getPhoto(photos) {
     this.photos = photos;
   }
   showSpinner(show) {
     this.show = show;
+  }
+  displayError(error) {
+    this.error = error;
   }
 }
