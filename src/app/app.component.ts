@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'marsPhotos';
+  photos;
+  show: boolean;
+
+  getPhoto(photos) {
+    this.photos = photos;
+  }
+  showSpinner(show) {
+    this.show = show;
+  }
 }

@@ -7,10 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
-  getPhotos() {
-    const camera = 'fhaz';
-    const sol = '1000';
-    //const photoUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=DEMO_KEY';
+  getPhoto(sol, camera) {
     return this.http.get(`/photos?sol=${sol}&camera=${camera}`);
   }
 }

@@ -19,7 +19,7 @@ app.get('/photos', (req, res) => {
     .then(resp => resp.json())
     .then(data => {
       console.log(data);
-      res.json({message: 'Tout est OK', donnees: data});
+      res.send(data);
     })
     .catch(err => console.log(err))
 });
