@@ -6,11 +6,11 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   selector: 'app-photo-list',
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.scss'],
-  inputs: ['photos', 'spinner']
+  inputs: ['photos', 'spinner', 'error']
 })
 export class PhotoListComponent implements OnInit {
   public myOptions: NgxMasonryOptions = {
-    transitionDuration: '0.8s',
+    // transitionDuration: '0.8s',
     gutter: 8,
     columnWidth: 300,
   };

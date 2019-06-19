@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { timeout } from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo-form',
@@ -10,6 +11,7 @@ export class PhotoFormComponent implements OnInit {
 
   @Output() triggerPhoto = new EventEmitter();
   @Output() triggerSpinner = new EventEmitter();
+  @Output() triggerError = new EventEmitter();
 
   sol: number;
   camera: string;
@@ -20,14 +22,29 @@ export class PhotoFormComponent implements OnInit {
   }
 
   searchPhoto() {
-    this.triggerSpinner.emit(true);
-    this.triggerPhoto.emit(null);
-    const photoObservable$ = this.api.getPhoto(this.sol, this.camera);
-    photoObservable$.subscribe(data => {
-      const photos = data['photos'];
-      this.triggerSpinner.emit(false);
-      this.triggerPhoto.emit(photos);
-    });
+    if(!this.sol || !this.camera) {
+      alert('Please fill in all the query items !');
+    }
+    else {
+      this.triggerSpinner.emit(true);
+      this.triggerPhoto.emit(null);
+      this.triggerError.emit();
+      const photoObservable$ = this.api.getPhoto(this.sol, this.camera);
+
+      photoObservable$.subscribe(response => {
+        if(response['success']) {
+          const photos = response['data'].photos;
+          this.triggerSpinner.emit(false);
+          this.triggerPhoto.emit(photos);
+        } else {
+            this.triggerSpinner.emit(false);
+            this.triggerError.emit(response['err']);
+          };
+
+      },
+      err => console.log(err));
   }
+
+    }
 
 }
