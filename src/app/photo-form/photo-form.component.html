@@ -1,32 +1,32 @@
 <div id="container">
-  <mat-card>
-    <mat-card-content>
-        <form #photoForm="ngForm" novalidate (ngSubmit)="searchPhoto()">
-
+  <form #photoForm="ngForm" novalidate (ngSubmit)="searchPhoto()">
+    <mat-card>
+        <mat-card-content>
             <mat-form-field>
-                <input matInput type="number" placeholder="Enter a Sol"
-                name="sol" [(ngModel)]="sol" required>
+                <input matInput type="number" placeholder="Enter a Sol" name="sol" [(ngModel)]="sol" required>
             </mat-form-field>
-            <div id="select_and_button">
+        </mat-card-content>
+    </mat-card>
+    <mat-card>
+        <mat-card-content>
             <mat-form-field>
-              <mat-label>Choose a camera</mat-label>
-                <mat-select [(value)]="camera">
-                  <mat-option value="fhaz">fhaz</mat-option>
-                  <mat-option value="rhaz">rhaz</mat-option>
-                  <mat-option value="mast">mast</mat-option>
-                  <mat-option value="chemcam">chemcam</mat-option>
-                  <mat-option value="mahli">mahli</mat-option>
-                  <mat-option value="mardi">mardi</mat-option>
-                  <mat-option value="navcam">navcam</mat-option>
-                </mat-select>
-            </mat-form-field>
+                <mat-label>Choose a camera</mat-label>
+                  <mat-select [(value)]="camera">
+                    <mat-option value="fhaz">fhaz</mat-option>
+                    <mat-option value="rhaz">rhaz</mat-option>
+                    <mat-option value="mast">mast</mat-option>
+                    <mat-option value="chemcam">chemcam</mat-option>
+                    <mat-option value="mahli">mahli</mat-option>
+                    <mat-option value="mardi">mardi</mat-option>
+                    <mat-option value="navcam">navcam</mat-option>
+                  </mat-select>
+              </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+    <button mat-raised-button type="submit" color="primary">
+        <mat-icon>search</mat-icon>
+        <span> Find photos</span>
+    </button>
+</form>
 
-            <button mat-raised-button type="submit" color="primary">
-              <mat-icon>search</mat-icon>
-                <span> Go</span>
-            </button>
-          </div>
-        </form>
-    </mat-card-content>
-</mat-card>
 </div>

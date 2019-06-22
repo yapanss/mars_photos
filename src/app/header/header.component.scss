@@ -3,7 +3,13 @@
 }
 
 span {
-  margin-left: 5%;
+  margin: auto ;
   font-family: 'Lora', serif;
   font-size: 2em;
+}
+
+@media (max-width: 475px) {
+  span {
+    font-size: 1.5em;
+  }
 }
