@@ -8,8 +8,9 @@ import { NgxMasonryOptions } from 'ngx-masonry';
   styleUrls: ['./photo-list.component.scss'],
 })
 export class PhotoListComponent implements OnInit {
-  
+
   @Input() photos;
+  @Input() totalPhotos;
   @Input() spinner;
   @Input() error;
 

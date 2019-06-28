@@ -6,8 +6,16 @@
 
 </app-photo-form>
 
-  <app-photo-list
-        [photos]=photos
-        [spinner]=show
-        [error]=error>
-  </app-photo-list>
+<div id="pages" *ngIf="photos">
+  <div *ngFor="let page of totalArray; let i=index">
+    <button mat-button class="page" (click)="displayPage(i)">{{i+1}}</button>
+  </div>
+</div>
+
+<app-photo-list
+      [photos]=photos
+      [totalPhotos]=totalPhotos
+      [spinner]=show
+      [error]=error>
+</app-photo-list>
+
