@@ -1,6 +1,6 @@
 #container {
-  margin-top: 30px;
-  background-color: yellow;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 img {
   border-radius: 5px;
@@ -8,17 +8,7 @@ img {
   height: 250px;
   cursor: pointer;
 }
-#photo_qtty {
-  background-color: darkblue;
-  text-align: center;
-  width: 80%;
-  margin: auto;
-  p {
-    font-size: 1.1em;
-    color: white;
-    padding: 5px;
-  }
-}
+
 #no_photo, #error {
   background-color: red;
   text-align: center;

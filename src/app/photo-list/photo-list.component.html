@@ -4,17 +4,14 @@
      <mat-spinner></mat-spinner>
      <mat-spinner></mat-spinner>
   </div>
-  <div *ngIf="error" id="error">
+  <div *ngIf="error && !spinner" id="error">
      <p>{{error}}</p>
   </div>
   <div *ngIf="photos">
-    <div *ngIf="photos.length > 0" id="photo_qtty">
-      <p>{{totalPhotos.length}} found</p>
-    </div>
-    <div *ngIf="photos.length == 0" id="no_photo">
+    <div *ngIf="photos.length == 0 && !spinner" id="no_photo">
       <p>Nothing found </p>
     </div>
-    <div id="grid" *ngIf="photos.length > 0">
+    <div id="grid" *ngIf="photos.length > 0 && !spinner">
       <div class="grid-item"
         *ngFor="let photo of photos; let i = index;">
         <a href="{{photo.img_src}}" target="_blank">

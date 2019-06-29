@@ -15,6 +15,8 @@ export class PhotoFormComponent implements OnInit {
 
   sol: number;
   camera: string;
+  photos;
+  spinner: boolean = false;
 
   constructor(private api: ApiService) { }
 
@@ -26,18 +28,21 @@ export class PhotoFormComponent implements OnInit {
       alert('Please fill in all the query items !');
     }
     else {
-      this.triggerSpinner.emit(true);
+      this.spinner = true;
+      this.triggerSpinner.emit(this.spinner);
       this.triggerPhoto.emit(null);
       this.triggerError.emit();
       const photoObservable$ = this.api.getPhoto(this.sol, this.camera);
 
       photoObservable$.subscribe(response => {
         if(response['success']) {
-          const photos = response['data'].photos;
-          this.triggerSpinner.emit(false);
-          this.triggerPhoto.emit(photos);
+          this.spinner = false;
+          this.photos = response['data'].photos;
+          this.triggerSpinner.emit(this.spinner);
+          this.triggerPhoto.emit(this.photos);
         } else {
-            this.triggerSpinner.emit(false);
+            this.spinner = false;
+            this.triggerSpinner.emit(this.spinner);
             this.triggerError.emit(response['err']);
           };
 

@@ -11,16 +11,21 @@ export class AppComponent {
   show: boolean;
   error: string;
   totalArray = [];
+  pager: number;
+  maxPager: number;
 
   getPhoto(photos) {
     if(photos) {
       this.totalPhotos = photos;
-      const totalPages = this.getTotalPages(photos);
+      const totalPages = this.getTotalPages(photos, 16);
       this.totalArray = this.createTotalPageArray(totalPages);
       const photos2 = photos;
       this.photos = photos.filter(photo => {
         return photos2.indexOf(photo) < 16;
       })
+      this.pager = 0;
+      this.maxPager = Math.floor(totalPages/5);
+      console.log(this.maxPager);
     }
   }
 
@@ -31,9 +36,9 @@ export class AppComponent {
   displayError(error) {
     this.error = error;
   }
-  getTotalPages(photos) {
-    let quotient = Math.floor(photos.length/16);
-    let reste = photos.length%16;
+  getTotalPages(photos, num) {
+    let quotient = Math.floor(photos.length/num);
+    let reste = photos.length%num;
     return reste == 0 ? quotient : quotient+1;
   }
   createTotalPageArray(totalPages) {
@@ -50,6 +55,13 @@ export class AppComponent {
     this.photos = this.totalPhotos.filter(photo => {
       return photoArray.indexOf(photo) >= min && photoArray.indexOf(photo) <= max;
     })
-    console.log(this.photos);
+  }
+  increasePage() {
+    this.pager++;
+    console.log(this.pager)
+  }
+  decreasePage() {
+    this.pager--;
+    console.log(this.pager);
   }
 }

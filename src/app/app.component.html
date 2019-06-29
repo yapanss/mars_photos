@@ -6,10 +6,17 @@
 
 </app-photo-form>
 
-<div id="pages" *ngIf="photos">
-  <div *ngFor="let page of totalArray; let i=index">
-    <button mat-button class="page" (click)="displayPage(i)">{{i+1}}</button>
+<div id="pages" *ngIf="photos && !show">
+  <p style="font-size: 1.1em;" *ngIf="photos.length>0">pages : </p>
+  <p (click)="decreasePage()" class="page_move" [hidden]="pager==0">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </p>
+  <div *ngFor="let page of totalArray; let i=index" class="pp">
+    <p class="page" (click)="displayPage(i)" *ngIf="(i/5)<(pager+1) && (i/5)>=pager">{{i+1}}</p>
   </div>
+  <p (click)="increasePage()" class="page_move" [hidden]="pager==maxPager">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </p>
 </div>
 
 <app-photo-list
@@ -18,4 +25,16 @@
       [spinner]=show
       [error]=error>
 </app-photo-list>
+<div id="pages" *ngIf="photos && !show">
+  <p style="font-size: 1.1em;" *ngIf="photos.length>0">pages : </p>
+  <p (click)="decreasePage()" class="page_move" [hidden]="pager==0">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </p>
+  <div *ngFor="let page of totalArray; let i=index" class="pp">
+    <p class="page" (click)="displayPage(i)" *ngIf="(i/5)<(pager+1) && (i/5)>=pager">{{i+1}}</p>
+  </div>
+  <p (click)="increasePage()" class="page_move" [hidden]="pager==maxPager">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </p>
+</div>
 

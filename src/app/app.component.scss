@@ -5,5 +5,31 @@
 
 #pages {
   display: flex;
-  text-align: right;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+.pp {
+  padding-top: 5px;
+}
+.page {
+  background-color: #485c5e;
+  color: white;
+  width: 25px;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  cursor: pointer;
+  margin-left: 3px;
+  text-align: center;
+  font-size: 0.8em;
+}
+.mat-icon {
+  color: white;
+  background-color: #485c5e;
+  cursor: pointer;
+  margin-left: 3px;
+}
+span {
+  font-size: 1.1em;
+}
+
+
