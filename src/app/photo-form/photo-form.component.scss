@@ -10,13 +10,22 @@
 .mat-form-field {
   width: 100%;
 }
-//.mat-card-content {
-  // margin-bottom: 20px;
- // background-color: green;
-//}
+
 form {
   width: 80%;
   margin: auto;
+}
+#photo_result {
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+.photo_found {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: cadetblue;
+  border-radius: 5px;
+  color: white;
 }
 
 @media (max-width: 475px) {
@@ -24,6 +33,3 @@ form {
     width: 100%;
   }
 }
-// button {
-//   margin-left: 10%;
-// }
